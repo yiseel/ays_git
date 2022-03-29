@@ -33,7 +33,7 @@ const reducer = (state, action) => {
       return state;
   }
   localStorage.setItem('diary', JSON.stringify(newState));
-  return newState;
+  return        ;
 };
 
 export const DiaryStateContext = React.createContext();
@@ -41,6 +41,7 @@ export const DiaryDispatchContext = React.createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, []);
+  const dataId = useRef(0);
 
   useEffect(()=>{
     const localData = localStorage.getItem('diary');
@@ -52,7 +53,6 @@ function App() {
     }
   }, []);
 
-  const dataId = useRef(0);
 
   const onCreate = (date, content, emotion) => {
     dispatch({
