@@ -1,14 +1,14 @@
-const Myheader = ({leftChild, headText, rightChild}) => {
+const Myheader = ({headText, leftChild, rightChild}) => {
     return (
         <header>
             <div className={"head_btn_left"}>
-                {leftChild}
+                {leftChild}    
             </div>
             <div className={"head_text"}>
                 {headText}
             </div>
             <div className={"head_btn_right"}>
-                {rightChild}
+                {rightChild}    
             </div>
         </header>
     )

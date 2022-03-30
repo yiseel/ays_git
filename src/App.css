@@ -41,7 +41,7 @@ body{
 
 
 /* button */
-.btn{
+.Mybutton{
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -52,17 +52,17 @@ body{
   font-family: 'Jua', sans-serif;
 }
 
-.btn_default{
+.Mybutton_default{
   background-color: #ececec;
   color: #000;
 }
 
-.btn_positive{
+.Mybutton_positive{
   background-color: #64c964;
   color: #fff;
 }
 
-.btn_negative{
+.Mybutton_negative{
   background-color: #fd565f;
   color: #fff;
 }
@@ -202,7 +202,7 @@ header button {
 }
 
 .DiaryEdit section{
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .DiaryEdit h4{
@@ -238,7 +238,7 @@ header button {
   font-size: 20px;
   box-sizing: border-box;
   width: 100%;
-  min-height: 200px;
+  min-height: 150px;
   resize: vertical;
 
   border: none;

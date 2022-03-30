@@ -1,18 +1,17 @@
 import { useContext, useEffect, useState } from "react";
+import Myheader from './../components/Myheader';
+import Mybutton from './../components/Mybutton';
 import { DiaryStateContext } from "../App";
+import DiaryList from './../components/DiaryList';
 
-import Mybutton from "../components/Mybutton";
-import MyHeader from "../components/Myheader";
-import DiartList from "../components/DiaryList";
-
-const Home= () => {
-
+const Home = () => {
+    
     const diaryList = useContext(DiaryStateContext);
     const [data, setData] = useState([]);
 
     const [curDate, setCurDate] = useState(new Date());
-    const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`
-
+    const HeadText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`
+    
     useEffect(()=>{
         if(diaryList.length >= 1){
             const firstDay = new Date(
@@ -34,29 +33,31 @@ const Home= () => {
         };
     },[diaryList, curDate]);
 
-    const deCreaseMonth = () => {
-        setCurDate(
-            new Date(curDate.getFullYear(), curDate.getMonth()-1, curDate.getDate())
-        );
-    };
-
+    // 다음 날짜로 이동
     const increaseMonth = () => {
         setCurDate(
             new Date(curDate.getFullYear(), curDate.getMonth()+1, curDate.getDate())
         );
     };
 
+    // 전 날짜로 이동
+    const deCreaseMonth = () => {
+        setCurDate(
+            new Date(curDate.getFullYear(), curDate.getMonth()-1, curDate.getDate())
+        );
+    };
+
+
     return (
         <div>
-            <MyHeader
-                headText={headText}
-                leftChild={<Mybutton text={"<"} onClick={deCreaseMonth}/>}
-                rightChild={<Mybutton text={">"} onClick={increaseMonth}/>}
+            <Myheader 
+                headText={HeadText}
+                leftChild = {<Mybutton text={'<'} onClick={deCreaseMonth}/>}
+                rightChild = {<Mybutton text={'>'} onClick={increaseMonth}/>}
             />
-            <DiartList diaryList={data}/>
+            <DiaryList diaryList={data}/>
         </div>
-    );
-
+    )
 }
 
 export default Home;
